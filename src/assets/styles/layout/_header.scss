@@ -1,0 +1,43 @@
+header {
+    background-color: $color-primary-light;
+    font-size: $font-size-larger;
+
+    .header-menu {
+        .header-menu-list {
+            display: flex;
+            flex-direction: column;
+
+            .header-menu-list-item {
+                &:hover {
+                    .header-menu-list-item-link {
+                        border: 2px solid $color-white;
+                        box-shadow: inset 0 0 0.5rem #0C111D;
+                        filter: brightness(2);
+                        text-shadow: 0 0 0.5rem $color-white;
+                    }
+                }
+
+                &:focus-visible, :focus-within {
+                    border: 2px solid $color-white;
+                    box-shadow: inset 0 0 0.5rem #0C111D;
+                    filter: brightness(2);
+                    outline: none;
+                    text-shadow: 0 0 0.5rem $color-white;
+                }
+
+                .header-menu-list-item-link {
+                    display: block;
+                    padding: 1rem;
+                    width: 10rem;
+
+                    &.current {
+                        border: 2px solid $color-white;
+                        box-shadow: inset 0 0 0.5rem #0C111D;
+                        filter: brightness(2);
+                        text-shadow: 0 0 0.5rem $color-white;
+                    }
+                }
+            }
+        }
+    }
+}
