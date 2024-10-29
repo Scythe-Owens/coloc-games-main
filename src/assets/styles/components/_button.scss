@@ -1,0 +1,14 @@
+.button {
+    background-color: $color-primary-light;
+    border-radius: 0.5rem;
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    transition: box-shadow 300ms ease-out;
+    width: fit-content;
+
+    &:hover {
+        cursor: pointer;
+        box-shadow: 0 0 1rem $color-primary-lighter;
+    }
+}

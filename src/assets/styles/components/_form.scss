@@ -1,0 +1,71 @@
+.form {
+    background-color: $color-primary-dark;
+    padding: 2rem;
+
+    .form-group {
+        &:has(textarea) {
+            display: flex;
+        }
+
+        &:has(.form-group-multifield) {
+            display: grid;
+        }
+
+        &:not(:first-child) {
+            margin-top: 1rem;
+        }
+
+        .form-group-label {
+            display: inline-block;
+            max-width: 10rem;
+            width: 100%;
+        }
+
+        .form-group-input {
+            background-color: $color-primary-light;
+            border-radius: 0.5rem;
+            font-size: $font-size-medium;
+            max-width: calc(100% - 14rem);
+            min-width: calc(100% - 14rem);
+            padding: 0.5rem 1rem;
+
+            &:is(textarea) {
+                height: 10rem;
+            }
+
+            &:focus-visible, :focus-within {
+                border: 2px solid $color-white;
+                outline: none;
+            }
+        }
+
+        .form-group-multifield {
+            margin-top: 1rem;
+            display: grid;
+            position: relative;
+
+            .form-group-multifield-field {
+                margin-top: 1rem;
+                padding-left: 1rem;
+
+                &:has(textarea) {
+                    display: flex;
+                }
+            }
+
+            .delete-button {
+                left: 5rem;
+                position: absolute;
+                top: -0.5rem;
+            }
+        }
+
+        .form-group-button {
+            margin-top: 1rem;
+        }
+    }
+
+    .form-submit {
+        margin-top: 2rem;
+    }
+}
