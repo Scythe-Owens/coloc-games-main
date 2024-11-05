@@ -17,7 +17,7 @@ function Header() {
                         <Link to="/" className={"header-menu-list-item-link" + (current === "/palmares" ? " current" : "")}>Palmarès</Link>
                     </li>
                     <li className="header-menu-list-item">
-                        <Link to="/" className={"header-menu-list-item-link" + (current === "/parametres" ? " current" : "")}>Paramètres</Link>
+                        <Link to="/parametres" className={"header-menu-list-item-link" + (current === "/parametres" ? " current" : "")}>Paramètres</Link>
                     </li>
                 </ul>
             </nav>

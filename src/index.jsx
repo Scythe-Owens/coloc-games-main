@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Layout/header';
 import Home from './pages/Home/Home';
+import GamesManager from './pages/GamesManager/GamesManager';
 import "./assets/styles/all.scss";
 import reportWebVitals from './reportWebVitals';
 
@@ -14,6 +15,7 @@ root.render(
       <main>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/parametres" element={<GamesManager/>}/>
           {/* <Route path="*" element={<Error/>}/> */}
         </Routes>
       </main>
