@@ -67,10 +67,7 @@ function GameForm() {
     function handleSubmit(event) {
         event.preventDefault();
 
-        let bodyFormData = new FormData(event.target);
-        bodyFormData.append('file', event.target.media.value);
-
-        createGame(bodyFormData);
+        createGame(event.target);
     }
 }
 
