@@ -1,40 +1,49 @@
-.game-manager-section {
-    background-color: $color-secondary-dark;
-    box-shadow: 0 0 1rem $color-black;
-    margin-top: 2rem;
-    padding: 1rem;
+.game-manager {
+    margin-top: 1rem;
 
-    &.open {
-        :not(.game-manager-section-title) {
-            display: block;
+    .game-manager-index {
+        .game-manager-index-gallery {
+            margin-top: 1rem;
         }
+    }
 
-        .game-manager-section-title {
-            .game-manager-section-title-icon {
-                transform: rotate(0);
+    .game-manager-section {
+        background-color: $color-secondary-dark;
+        box-shadow: 0 0 1rem $color-black;
+        padding: 1rem;
+    
+        &.open {
+            :not(.game-manager-section-title) {
+                display: block;
+            }
+    
+            .game-manager-section-title {
+                .game-manager-section-title-icon {
+                    transform: rotate(0);
+                }
             }
         }
-    }
-
-    >:not(.game-manager-section-title) {
-        display: none;
-    }
-
-    .game-manager-section-title {
-        display: flex;
-        justify-content: space-between;
-
-        &:hover {
-            cursor: pointer;
+    
+        >:not(.game-manager-section-title) {
+            display: none;
         }
-
-        .game-manager-section-title-icon {
-            transform: rotate(-180deg);
-            transition: transform 300ms ease-in-out;
+    
+        .game-manager-section-title {
+            display: flex;
+            justify-content: space-between;
+    
+            &:hover {
+                cursor: pointer;
+            }
+    
+            .game-manager-section-title-icon {
+                transform: rotate(-180deg);
+                transition: transform 300ms ease-in-out;
+            }
         }
-    }
-
-    .form {
-        margin-top: 1rem;
+    
+        .form {
+            margin-top: 1rem;
+        }
     }
 }
