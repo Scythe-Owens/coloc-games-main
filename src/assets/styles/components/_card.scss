@@ -1,0 +1,44 @@
+.card {
+    background-color: $color-primary-lighter;
+    box-shadow:  0 0 1rem $color-primary-dark;
+    padding: 0.5rem;
+    
+    .card-media {
+        max-width: 20%;
+    }
+
+    .card-title {
+        color: $color-primary-dark;
+        font-weight: bold;
+    }
+
+    .card-content {
+        display: grid;
+        gap: 0.5rem;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 0.5rem;
+
+        .card-content-general {
+            .card-content-general-media {
+                width: 100%;
+            }
+
+            .card-content-general-content {
+                margin-top: 0.5rem;
+            }
+        }
+
+        .card-content-detail {
+            .card-content-detail-item {
+                &:not(:first-child) {
+                    margin-top: 1rem;
+                }
+
+                .card-content-detail-item-content {
+                    margin-left: 1rem;
+                    margin-top: 0.5rem;
+                }
+            }
+        }
+    }
+}
