@@ -1,3 +1,4 @@
+// GAME API CALLS
 export function createGame(multipart) {
     const game = {
         name: multipart.name.value,
@@ -23,4 +24,18 @@ export function createGame(multipart) {
     })
     .then(response => response.json())
     .catch(error => console.error(error));
+}
+
+export async function readGames() {
+    try {
+        const response = await fetch('http://localhost:4000/api/game', {
+            method: "GET"
+        });
+        const games = await response.json();
+
+        return games;
+    } catch (error) {
+        console.log(error);
+        return;
+    }
 }
