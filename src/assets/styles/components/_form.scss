@@ -56,6 +56,30 @@
             }
         }
 
+        .form-group-tags {
+            .form-group-tag-label {
+                background-color: $color-primary-light;
+                border-radius: 0.5rem;
+                display: inline-block;
+                padding: 0.5rem 1rem;
+
+                &:hover {
+                    background-color: $color-primary-lighter;
+                    cursor: pointer;
+                }
+            }
+
+            .form-group-tag-input {
+                display: none;
+
+                &:checked {
+                    + .form-group-tag-label {
+                        background-color: $color-primary-lighter;
+                    }
+                }
+            }
+        }
+
         .form-group-button {
             margin-top: 1rem;
         }
