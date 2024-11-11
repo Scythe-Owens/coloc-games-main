@@ -82,3 +82,46 @@ export async function readCategories() {
         return;
     }
 }
+
+// SONG API CALL
+export function createSong(form) {
+    const song = {
+        name: form.name.value,
+        categories: [],
+        link: form.link.value,
+    }
+
+    if (!Array.isArray(form.categories)) {
+        song.categories.push(form.categories.value);
+    }
+
+    if (Array.isArray(form.categories)) {
+        form.categories.forEach((category) => {
+            if (category.checked) {
+                song.categories.push(category.value);
+            }
+        })
+    }
+
+    fetch('http://localhost:4000/api/song', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(song)
+    })
+    .then(response => response.json())
+    .catch(error => console.error(error));
+}
+
+export async function readSongs() {
+    try {
+        const response = await fetch('http://localhost:4000/api/song', {
+            method: "GET"
+        });
+        const songs = await response.json();
+
+        return songs;
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+}
