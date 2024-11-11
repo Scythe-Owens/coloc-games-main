@@ -52,7 +52,7 @@ function CategoryForm() {
 
     function handleChange(event) {
         const input = event.target;
-        const label = document.querySelector('label[for=' + input.id)
+        const label = document.querySelector('label[for=' + input.id + ']');
 
         if ("" === input.value) {
             setError("Veuillez remplir le champ " + label.innerText )
