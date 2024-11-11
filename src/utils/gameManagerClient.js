@@ -39,3 +39,46 @@ export async function readGames() {
         return;
     }
 }
+
+// CATEGORY API CALLS
+export function createCategory(form) {
+    const category = {
+        name: form.name.value,
+        reward: form.reward.value,
+        games: [],
+    }
+
+    if (!Array.isArray(form.games)) {
+        category.games.push(form.games.value);
+    }
+
+    if (Array.isArray(form.games)) {
+        form.games.forEach((game) => {
+            if (game.checked) {
+                category.games.push(game.value);
+            }
+        })
+    }
+
+    fetch('http://localhost:4000/api/category', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(category)
+    })
+    .then(response => response.json())
+    .catch(error => console.error(error));
+}
+
+export async function readCategories() {
+    try {
+        const response = await fetch('http://localhost:4000/api/category', {
+            method: "GET"
+        });
+        const categories = await response.json();
+
+        return categories;
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+}
