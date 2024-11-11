@@ -3,10 +3,6 @@
     padding: 2rem;
 
     .form-group {
-        &:has(textarea) {
-            display: flex;
-        }
-
         &:has(.form-group-multifield) {
             display: grid;
         }
