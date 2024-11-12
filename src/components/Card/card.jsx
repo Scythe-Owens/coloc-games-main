@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-function Card({ title, media, description, details }) {
+function Card({ slug, title, media, description, details }) {
     return (
-        <article className="card">
+        <Link to={ slug } className="card">
             <h3 className="card-title">{ title }</h3>
             <div className="card-content">
                 <div className="card-content-general">
@@ -23,11 +24,12 @@ function Card({ title, media, description, details }) {
                     })}
                 </ul>
             </div>
-        </article>
+        </Link>
     )
 }
 
 Card.Prototypes = {
+    slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     media: PropTypes.string.isRequired,
     description: PropTypes.string,

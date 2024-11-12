@@ -11,7 +11,7 @@ function Header() {
                         <Link to="/" className={"header-menu-list-item-link" + (current === "/" ? " current" : "")}>Menu principal</Link>
                     </li>
                     <li className="header-menu-list-item">
-                        <Link to="/" className={"header-menu-list-item-link" + (current === "/jeux" ? " current" : "")}>Jeux</Link>
+                        <Link to="/jeux" className={"header-menu-list-item-link" + (current === "/jeux" ? " current" : "")}>Jeux</Link>
                     </li>
                     <li className="header-menu-list-item">
                         <Link to="/" className={"header-menu-list-item-link" + (current === "/palmares" ? " current" : "")}>Palmarès</Link>
