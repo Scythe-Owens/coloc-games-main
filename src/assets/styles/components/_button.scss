@@ -1,5 +1,7 @@
+@use "../variables";
+
 .button {
-    background-color: $color-primary-light;
+    background-color: variables.$color-primary-light;
     border-radius: 0.5rem;
     display: block;
     margin: 0 auto;
@@ -9,6 +11,6 @@
 
     &:hover {
         cursor: pointer;
-        box-shadow: 0 0 1rem $color-primary-lighter;
+        box-shadow: 0 0 1rem variables.$color-primary-lighter;
     }
 }

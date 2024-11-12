@@ -1,6 +1,8 @@
+@use "../variables";
+
 .page-header {
-    box-shadow: 0 0 1rem $color-primary-dark;
-    background-color: $color-secondary-dark;
+    box-shadow: 0 0 1rem variables.$color-primary-dark;
+    background-color: variables.$color-secondary-dark;
     padding: 1rem;
 
     .page-header-breadcrumb {

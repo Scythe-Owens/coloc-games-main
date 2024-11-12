@@ -1,7 +1,7 @@
-@import './variables';
+@use 'variables';
 
-@import './reset';
+@use 'reset';
 
-@import './layout/all';
-@import './components/all';
-@import './pages/all';
+@use 'layout/all' as layout;
+@use 'components/all' as components;
+@use 'pages/all' as pages;

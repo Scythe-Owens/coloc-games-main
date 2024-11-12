@@ -1,5 +1,7 @@
+@use "../variables";
+
 .form {
-    background-color: $color-primary-dark;
+    background-color: variables.$color-primary-dark;
     padding: 2rem;
 
     .form-group {
@@ -18,9 +20,9 @@
         }
 
         .form-group-input {
-            background-color: $color-primary-light;
+            background-color: variables.$color-primary-light;
             border-radius: 0.5rem;
-            font-size: $font-size-medium;
+            font-size: variables.$font-size-medium;
             max-width: calc(100% - 3rem);
             min-width: calc(100% - 3rem);
             padding: 0.5rem 1rem;
@@ -30,7 +32,7 @@
             }
 
             &:focus-visible, :focus-within {
-                border: 2px solid $color-white;
+                border: 2px solid variables.$color-white;
                 outline: none;
             }
         }
@@ -54,13 +56,13 @@
 
         .form-group-tags {
             .form-group-tag-label {
-                background-color: $color-primary-light;
+                background-color: variables.$color-primary-light;
                 border-radius: 0.5rem;
                 display: inline-block;
                 padding: 0.5rem 1rem;
 
                 &:hover {
-                    background-color: $color-primary-lighter;
+                    background-color: variables.$color-primary-lighter;
                     cursor: pointer;
                 }
             }
@@ -70,7 +72,7 @@
 
                 &:checked {
                     + .form-group-tag-label {
-                        background-color: $color-primary-lighter;
+                        background-color: variables.$color-primary-lighter;
                     }
                 }
             }

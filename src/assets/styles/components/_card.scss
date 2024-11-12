@@ -1,6 +1,9 @@
+@use "../variables";
+
 .card {
-    background-color: $color-primary-lighter;
-    box-shadow:  0 0 1rem $color-primary-dark;
+    background-color: variables.$color-primary-lighter;
+    box-shadow:  0 0 1rem variables.$color-primary-dark;
+    display: block;
     padding: 0.5rem;
     
     .card-media {
@@ -8,7 +11,7 @@
     }
 
     .card-title {
-        color: $color-primary-dark;
+        color: variables.$color-primary-dark;
         font-weight: bold;
     }
 

@@ -1,3 +1,5 @@
+@use "../variables";
+
 .game-manager {
     margin-top: 1rem;
 
@@ -20,8 +22,8 @@
         }
     
         .game-manager-section {
-            background-color: $color-secondary-dark;
-            box-shadow: 0 0 1rem $color-black;
+            background-color: variables.$color-secondary-dark;
+            box-shadow: 0 0 1rem variables.$color-black;
             padding: 1rem;
         
             &.open {
