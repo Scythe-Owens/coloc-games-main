@@ -6,16 +6,18 @@ export function createGame(multipart) {
         rules: [],
     };
 
-    multipart.ruleName.forEach(rule => {
-        game.rules.push({name: rule.value});
-    });
-
-    multipart.ruleDescription.forEach((rule, index) => {
-        game.rules[index]['description'] = rule.value;
-    })
+    if ([] != multipart.ruleName && [] != multipart.ruleDescription) {
+        multipart.ruleName.forEach(rule => {
+            game.rules.push({name: rule.value});
+        });
+    
+        multipart.ruleDescription.forEach((rule, index) => {
+            game.rules[index]['description'] = rule.value;
+        })
+    }
 
     const bodyFormData = new FormData();
-    bodyFormData.append('game', JSON.stringify(game));
+    bodyFormData.append('data', JSON.stringify(game));
     bodyFormData.append('image', multipart.media.files[0]);
 
     fetch('http://localhost:4000/api/game', {
@@ -42,20 +44,20 @@ export async function readGames() {
 
 // CATEGORY API CALLS
 export function createCategory(form) {
-    const category = {
+    const data = {
         name: form.name.value,
         reward: form.reward.value,
         games: [],
     }
 
     if (!Array.isArray(form.games)) {
-        category.games.push(form.games.value);
+        data.games.push(form.games.value);
     }
 
     if (Array.isArray(form.games)) {
         form.games.forEach((game) => {
             if (game.checked) {
-                category.games.push(game.value);
+                data.games.push(game.value);
             }
         })
     }
@@ -63,7 +65,7 @@ export function createCategory(form) {
     fetch('http://localhost:4000/api/category', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(category)
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
     .catch(error => console.error(error));
@@ -85,20 +87,20 @@ export async function readCategories() {
 
 // SONG API CALL
 export function createSong(form) {
-    const song = {
+    const data = {
         name: form.name.value,
         categories: [],
         link: form.link.value,
     }
 
     if (!Array.isArray(form.categories)) {
-        song.categories.push(form.categories.value);
+        data.categories.push(form.categories.value);
     }
 
     if (Array.isArray(form.categories)) {
         form.categories.forEach((category) => {
             if (category.checked) {
-                song.categories.push(category.value);
+                data.categories.push(category.value);
             }
         })
     }
@@ -106,7 +108,7 @@ export function createSong(form) {
     fetch('http://localhost:4000/api/song', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(song)
+        body: JSON.stringify(data)
     })
     .then(response => response.json())
     .catch(error => console.error(error));
