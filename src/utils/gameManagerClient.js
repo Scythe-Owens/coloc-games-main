@@ -10,7 +10,7 @@ export function createGame(multipart) {
         multipart.ruleName.forEach(rule => {
             game.rules.push({name: rule.value});
         });
-    
+
         multipart.ruleDescription.forEach((rule, index) => {
             game.rules[index]['description'] = rule.value;
         })
@@ -36,6 +36,20 @@ export async function readGames() {
         const games = await response.json();
 
         return games;
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+}
+
+export async function readGame(slug) {
+    try {
+        const response = await fetch('http://localhost:4000/api/game/'.concat('', slug), {
+            method: "GET"
+        });
+        const game = await response.json();
+
+        return game;
     } catch (error) {
         console.log(error);
         return;
@@ -122,6 +136,28 @@ export async function readSongs() {
         const songs = await response.json();
 
         return songs;
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+}
+
+// MATCH API CALL
+export async function createMatch(form) {
+    console.log(form);
+    const data = {
+        "name": form.name.value,
+        "game": form.game.value
+    };
+
+    try {
+        const response = await fetch('http://localhost:4000/api/match', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        return await response.json();
     } catch (error) {
         console.log(error);
         return;
