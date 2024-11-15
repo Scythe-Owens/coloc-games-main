@@ -4,6 +4,16 @@
     background-color: variables.$color-primary-dark;
     padding: 2rem;
 
+    &.add-player-form {
+        .add-player-form-group {
+            .form-group-multifield {
+                .delete-button {
+                    left: 8rem;
+                }
+            }
+        }
+    }
+
     .form-group {
         &:has(.form-group-multifield) {
             display: grid;
