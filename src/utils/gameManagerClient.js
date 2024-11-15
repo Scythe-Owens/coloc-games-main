@@ -144,7 +144,6 @@ export async function readSongs() {
 
 // MATCH API CALL
 export async function createMatch(form) {
-    console.log(form);
     const data = {
         "name": form.name.value,
         "game": form.game.value
@@ -160,6 +159,28 @@ export async function createMatch(form) {
         return await response.json();
     } catch (error) {
         console.log(error);
+        return;
+    }
+}
+
+// PLAYER API CALL
+export async function createPlayer(formdata) {
+    const data = {
+        "name": formdata.get("name"),
+        "match": formdata.get("match")
+    };
+
+    try {
+        const response = await fetch('http://localhost:4000/api/player', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+
         return;
     }
 }
