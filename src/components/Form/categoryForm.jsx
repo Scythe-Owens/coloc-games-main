@@ -31,17 +31,19 @@ function CategoryForm() {
             <fieldset className="form-group add-category-form-group">
                 <legend>Jeux</legend>
                 { games ?
-                    games.map((game, index) => {
-                        return (
-                            <div key={ "game-input-" + index } className="form-group-tags add-category-form-group-tags">
-                                <TagInput
-                                    name="games"
-                                    label={ game.name }
-                                    value={ game._id }
-                                />
-                            </div>
-                        )
-                    })
+                    <div className="form-group-content">
+                        { games.map((game, index) => {
+                            return (
+                                <div key={ "game-input-" + index } className="form-group-tags add-category-form-group-tags">
+                                    <TagInput
+                                        name="games"
+                                        label={ game.name }
+                                        value={ game._id }
+                                    />
+                                </div>
+                            )
+                        }) }
+                    </div>
                     : null
                 }
             </fieldset>

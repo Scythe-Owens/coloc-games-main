@@ -23,6 +23,11 @@
             margin-top: 1rem;
         }
 
+        .form-group-content {
+            display: flex;
+            gap: 0.5rem;
+        }
+
         .form-group-label {
             display: inline-block;
             max-width: 10rem;

@@ -28,17 +28,19 @@ function SongForm() {
             <fieldset className="form-group add-category-form-group">
                 <legend>Categories</legend>
                 { categories ?
-                    categories.map((category, index) => {
-                        return (
-                            <div key={ "category-input-" + index } className="form-group-tags add-song-form-group-tags">
-                                <TagInput
-                                    name="categories"
-                                    label={ category.name }
-                                    value={ category._id }
-                                />
-                            </div>
-                        )
-                    })
+                    <div className="form-group-content">
+                        { categories.map((category, index) => {
+                            return (
+                                <div key={ "category-input-" + index } className="form-group-tags add-song-form-group-tags">
+                                    <TagInput
+                                        name="categories"
+                                        label={ category.name }
+                                        value={ category._id }
+                                    />
+                                </div>
+                            )
+                        }) }
+                    </div>
                     : null
                 }
             </fieldset>
@@ -61,7 +63,7 @@ function SongForm() {
         } else {
             setNameError();
         }
-        
+
         if ("link" === input.name && "" === input.value) {
             setLinkError("Veuillez remplir le champ " + label.innerText)
         } else {
