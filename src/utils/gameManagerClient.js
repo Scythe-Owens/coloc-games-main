@@ -64,11 +64,11 @@ export function createCategory(form) {
         games: [],
     }
 
-    if (!Array.isArray(form.games)) {
+    if ("string" === typeof form.games) {
         data.games.push(form.games.value);
     }
 
-    if (Array.isArray(form.games)) {
+    if (Array.isArray(form.games) || "object" === typeof form.games) {
         form.games.forEach((game) => {
             if (game.checked) {
                 data.games.push(game.value);
