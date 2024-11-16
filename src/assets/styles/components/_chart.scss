@@ -1,0 +1,47 @@
+@use "../variables";
+
+.chart {
+    background-color: variables.$color-primary-dark;
+    margin-inline: auto;
+    margin-top: 1rem;
+    text-align: center;
+    width: 80%;
+
+    .chart-header {
+        font-size: variables.$font-size-larger;
+
+        .chart-header-column {
+            .chart-header-column-title {
+                padding: 0.5rem;
+                width: 50%;
+            }
+        }
+    }
+
+    .chart-content {
+        .chart-content-row {
+            background-color: variables.$color-secondary-light;
+
+            &:hover {
+                &:not(.disabled) {
+                    background-color: variables.$color-secondary-lighter;
+                    cursor: pointer;
+                }
+            }
+
+            &:nth-child(even) {
+                &:not(:hover) {
+                    background-color: variables.$color-secondary-dark;
+                }
+            }
+
+            &.disabled {
+                filter: brightness(0.5);
+            }
+
+            .chart-content-row-cell {
+                padding: 0.5rem;
+            }
+        }
+    }
+}
