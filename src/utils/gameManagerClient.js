@@ -107,11 +107,11 @@ export function createSong(form) {
         link: form.link.value,
     }
 
-    if (!Array.isArray(form.categories)) {
+    if ("string" === typeof form.categories) {
         data.categories.push(form.categories.value);
     }
 
-    if (Array.isArray(form.categories)) {
+    if (Array.isArray(form.categories) || "object" === typeof form.categories) {
         form.categories.forEach((category) => {
             if (category.checked) {
                 data.categories.push(category.value);
@@ -131,6 +131,20 @@ export function createSong(form) {
 export async function readSongs() {
     try {
         const response = await fetch('http://localhost:4000/api/song', {
+            method: "GET"
+        });
+        const songs = await response.json();
+
+        return songs;
+    } catch (error) {
+        console.log(error);
+        return;
+    }
+}
+
+export async function readSongsByCategory(categoryId) {
+    try {
+        const response = await fetch('http://localhost:4000/api/song/category/' + categoryId, {
             method: "GET"
         });
         const songs = await response.json();
