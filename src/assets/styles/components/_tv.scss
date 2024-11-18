@@ -1,0 +1,21 @@
+@use "../variables";
+
+.tv {
+    background-color: variables.$color-primary-dark;
+    margin-top: 1rem;
+
+    .tv-programme {
+        padding: 1rem 1rem 0 1rem;
+    }
+
+    .tv-media {
+        box-sizing: border-box;
+        display: block;
+        height: 23rem;
+        width: 100%;
+    }
+
+    .board {
+        margin: 0;
+    }
+}
