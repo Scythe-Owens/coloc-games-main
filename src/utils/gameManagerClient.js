@@ -177,6 +177,41 @@ export async function createMatch(form) {
     }
 }
 
+export async function readMatchById(matchId) {
+    try {
+        const response = await fetch('http://localhost:4000/api/match/' + matchId, {
+            method: "GET"
+        });
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+
+        return;
+    }
+}
+
+export async function updateMatch(formdata) {
+    const data = {
+        "categories": JSON.parse(formdata.get("categories")),
+        "songs": JSON.parse(formdata.get("songs"))
+    }
+
+    try {
+        const response = await fetch('http://localhost:4000/api/match/'.concat(formdata.get("id")), {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data)
+        });
+
+        return await response.json();
+    } catch (error) {
+        console.log(error);
+
+        return;
+    }
+}
+
 // PLAYER API CALL
 export async function createPlayer(formdata) {
     const data = {
